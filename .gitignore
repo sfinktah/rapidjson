@@ -23,3 +23,24 @@ Doxyfile
 Doxyfile.zh-cn
 DartConfiguration.tcl
 *.nupkg
+
+# Inherited
+*.[oa]
+*.asp
+*.bsc
+*.db
+*.iobj
+*.ipdb
+*.ncb
+*.opendb
+*.opensdf
+*.pch
+*.sdf
+*.suo
+*.swp
+*.un~
+*.user
+*.vcproj
+*~
+.backups
+/unused
