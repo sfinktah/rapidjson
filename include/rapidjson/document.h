@@ -1645,6 +1645,7 @@ public:
     int GetInt() const          { RAPIDJSON_ASSERT(data_.f.flags & kIntFlag);   return data_.n.i.i;   }
     unsigned GetUint() const    { RAPIDJSON_ASSERT(data_.f.flags & kUintFlag);  return data_.n.u.u;   }
     int64_t GetInt64() const    { RAPIDJSON_ASSERT(data_.f.flags & kInt64Flag); return data_.n.i64; }
+    int64_t GetInt64Force() const    { RAPIDJSON_ASSERT(data_.f.flags < 0x200); return data_.n.i64; }
     uint64_t GetUint64() const  { RAPIDJSON_ASSERT(data_.f.flags & kUint64Flag); return data_.n.u64; }
 
     //! Get the value as double type.

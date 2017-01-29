@@ -17,6 +17,8 @@
 
 #include "rapidjson.h"
 
+#include <cassert>
+#include <cstdlib>
 RAPIDJSON_NAMESPACE_BEGIN
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -214,7 +216,7 @@ public:
         // Realloc process: allocate and copy memory, do not free original buffer.
         if (void* newBuffer = Malloc(newSize)) {
             if (originalSize)
-                std::memcpy(newBuffer, originalPtr, originalSize);
+                memcpy(newBuffer, originalPtr, originalSize);
             return newBuffer;
         }
         else
