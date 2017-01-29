@@ -1011,7 +1011,8 @@ private:
     }
 
     static bool IsPatternMatch(const RegexType* pattern, const Ch *str, SizeType) {
-        return pattern->Search(str);
+        GenericRegexSearch<RegexType> rs(*pattern);
+        return rs.Search(str);
     }
 #elif RAPIDJSON_SCHEMA_USE_STDREGEX
     template <typename ValueType>
@@ -1473,7 +1474,7 @@ private:
 
                 if (i > 0) { // Remote reference, resolve immediately
                     if (remoteProvider_) {
-                        if (const GenericSchemaDocument* remoteDocument = remoteProvider_->GetRemoteDocument(s, i - 1)) {
+                        if (const GenericSchemaDocument* remoteDocument = remoteProvider_->GetRemoteDocument(s, i)) {
                             PointerType pointer(&s[i], len - i, allocator_);
                             if (pointer.IsValid()) {
                                 if (const SchemaType* sc = remoteDocument->GetSchema(pointer)) {
